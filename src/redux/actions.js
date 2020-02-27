@@ -22,6 +22,11 @@ export default function state(state = initialState, { type, payload }) {
                 ...state,
                 current_movie: payload
             }
+        case 'CURRENT_VIDEO':
+            return {
+                ...state,
+                current_video: payload
+            }
         default:
             return state;
     }
