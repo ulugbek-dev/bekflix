@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { primaryColor } from './../../styled/variables';
 
 export const SliderStyled = styled.div`
     width: calc(100% + 8px);
@@ -8,7 +9,7 @@ export const SliderStyled = styled.div`
         padding: 0 8px;
         margin-bottom: 16px;
         font-size: 18px;
-        opacity: .8;
+        opacity: .85;
     }
 
     .slick-next {
@@ -33,6 +34,7 @@ export const SliderStyled = styled.div`
         padding: 0 8px;
 
         .card-content {
+            box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -56,6 +58,40 @@ export const SliderStyled = styled.div`
                 position: absolute;
                 bottom: 10px;
                 font-size: 16px;
+                color: #fff;
+                font-weight: 400;
+            }
+
+            .extra {
+                display: inline-flex;
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                
+                span {
+                    padding: 0 4px;
+                    align-items: center;
+                    border-radius: 6px;
+                    margin-left: 4px;
+                    color: #232323;
+                }
+
+                .rate {
+                    background: #F5C518;
+                }
+
+                .new {
+                    background: ${primaryColor};
+                    color: #030303;
+                }
+
+                small {
+                    margin: 0;
+                }
+
+                i {
+                    margin-right: 4px;
+                }
             }
         }
     }

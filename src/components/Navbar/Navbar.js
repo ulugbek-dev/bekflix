@@ -8,31 +8,33 @@ export default function Navbar() {
 
     return (
         <NavbarStyled>
-            <div>
-                <Link to="/">
-                    <Logo>bek<span>flix</span></Logo>
-                </Link>
+            <div className="navbar">
+                <div>
+                    <Link to="/">
+                        <Logo>bek<span>flix</span></Logo>
+                    </Link>
 
-                <ul>
-                    <li>Genre</li>
-                    <li>Movies</li>
-                    <li>TV Shows</li>
-                    <li>Release</li>
-                    <li>Trending</li>                
-                </ul>
+                    <ul>
+                        <li>Genre</li>
+                        <li>Movies</li>
+                        <li>TV Shows</li>
+                        <li>Release</li>
+                        <li>Trending</li>                
+                    </ul>
+                </div>
+
+                <form>
+                    <span>
+                        <input 
+                            type="text" 
+                            value={search}
+                            placeholder="Search"
+                            onChange={e => setSearch(e.target.value)}
+                        />
+                        <i className="fa fa-search"></i>
+                    </span>
+                </form>
             </div>
-
-            <form>
-                <span>
-                    <input 
-                        type="text" 
-                        value={search}
-                        placeholder="Search"
-                        onChange={e => setSearch(e.target.value)}
-                    />
-                    <i className="fa fa-search"></i>
-                </span>
-            </form>
         </NavbarStyled>
     );
 }

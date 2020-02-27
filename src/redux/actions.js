@@ -5,26 +5,22 @@ export default function state(state = initialState, { type, payload }) {
         case 'TOP_MOVIES':
             return {
                 ...state,
-                home: {
-                    ...state.home,
-                    top_movies: payload
-                }
+                top_movies: payload
             }
         case 'TOP_TV_SHOWS':
             return {
                 ...state,
-                home: {
-                    ...state.home,
-                    top_tv_shows: payload
-                }
+                top_tv_shows: payload
             }
         case 'NEW_MOVIES':
             return {
                 ...state,
-                home: {
-                    ...state.home,
-                    new_movies: payload
-                }
+                new_movies: payload
+            }
+        case 'CURRENT_MOVIE':
+            return {
+                ...state,
+                current_movie: payload
             }
         default:
             return state;

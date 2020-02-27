@@ -1,9 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { maxWidth } from './variables';
 
 export const Wrapper = styled.div`
     width: 100%;
-    max-width: 1300px;
+    max-width: ${maxWidth};
     margin: auto;
     padding: 0 30px;
-    ${props => props.afterNav && css`padding-top: 120px;`}
+    padding-top: 120px;
 `

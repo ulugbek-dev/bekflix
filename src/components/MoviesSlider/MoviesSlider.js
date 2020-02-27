@@ -1,14 +1,15 @@
 import React from 'react';
 import Slider from "react-slick";
-import { SliderStyled } from './../../styled/SliderStyled';
+import { SliderStyled } from './styled';
 import { useAxios } from './../../hooks/axios';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export default function MoviesSlider({ title, api, type }) {
     // Get api data and dispatch to store
     useAxios(api, type);
     
-    const movies = useSelector(state => state.home[type.toLowerCase()]);
+    const movies = useSelector(state => state[type.toLowerCase()]);
 
     const banner = {
         dots: false,
@@ -25,12 +26,28 @@ export default function MoviesSlider({ title, api, type }) {
             <Slider {...banner}>
                 {movies.map((m, i) => (
                     <div key={i} className="slider-card">
-                        <div 
-                            className="card-content"
-                            style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${m.backdrop_path})`}}
-                        >
-                            <h3>{m.title || m.name}</h3>
-                        </div>
+                        <Link to={{
+                            pathname: `/details/${api.split('/')[0]}/${m.id}`,
+
+                        }}>
+                            <div 
+                                className="card-content"
+                                style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${m.backdrop_path})`}}
+                            >
+                                <div className="extra">
+                                    {m.release_date && m.release_date.split('-')[0] === '2020' && (
+                                        <span className="new">
+                                            <small>NEW</small>
+                                        </span>
+                                    )}
+                                    <span className="rate">
+                                        <i className="fa fa-star-o"></i>
+                                        <small>{m.vote_average}</small>
+                                    </span>
+                                </div>
+                                <h3>{m.title || m.name}</h3>
+                            </div>
+                        </Link>
                     </div>
                 ))}
             </Slider>
