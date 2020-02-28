@@ -42,6 +42,13 @@ export const SliderStyled = styled.div`
             border-radius: 6px;
             padding: 10px;
             position: relative;
+            opacity: .85;
+            transition: 200ms;
+
+            :hover {
+                opacity: 1;
+            }
+
             :before {
                 content: '';
                 position: absolute;

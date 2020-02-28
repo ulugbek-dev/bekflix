@@ -3,5 +3,6 @@ export const initialState = {
     top_tv_shows: [],
     new_movies: [],
     current_movie: [],
-    current_video: []
+    current_video: [],
+    similar_movies: []
 }

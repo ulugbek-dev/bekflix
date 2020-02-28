@@ -77,5 +77,20 @@ export const MovieDetailsStyled = styled.div`
 
     .similar {
         flex: 1;
+        max-width: 330px;
+        padding-left: 80px;
+
+        h3 {
+            opacity: .9;
+            font-weight: 500;
+        }
+
+        small {
+            background: rgba(255, 0, 0, .4);
+            padding: 8px;
+            display: block;
+            border-radius: 6px;
+            color: #f3f3f3;
+        }
     }
 `

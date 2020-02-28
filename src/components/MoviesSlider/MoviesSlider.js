@@ -27,8 +27,7 @@ export default function MoviesSlider({ title, api, type }) {
                 {movies.map((m, i) => (
                     <div key={i} className="slider-card">
                         <Link to={{
-                            pathname: `/details/${api.split('/')[0]}/${m.id}`,
-
+                            pathname: `/details/${api.split('/')[0]}/${m.id}`
                         }}>
                             <div 
                                 className="card-content"

@@ -5,6 +5,7 @@ import { useLocation } from 'react-router';
 import { useAxios } from './../../hooks/axios';
 import { useSelector } from 'react-redux';
 import SimilarCard from './../SimilarCard/SimilarCard';
+import { Link } from 'react-router-dom';
 
 export default function MovieDetails() {
     // Get movie/tv id
@@ -19,9 +20,13 @@ export default function MovieDetails() {
     // Get trailer link
     useAxios(parseInt(id), 'CURRENT_VIDEO', type, '/videos')
 
+    // Get similar movies
+    useAxios(parseInt(id), 'SIMILAR_MOVIES', type, '/similar')
+
     // Get data from store
     const movie = useSelector(state => state['current_movie']);
     const video = useSelector(state => state['current_video']);
+    const similar = useSelector(state => state['similar_movies']);
 
     return (
         <Wrapper>
@@ -43,23 +48,42 @@ export default function MovieDetails() {
                                 <p>Overview:</p>
                                 <span>{movie.overview}</span>
                             </div>
-                            <div className="item">
-                                <p>Release date:</p>
-                                <span>{movie.release_date}</span>
-                            </div>
+                            {movie.release_date && (
+                                <div className="item">
+                                    <p>Release date:</p>
+                                    <span>{movie.release_date}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
 
                     {video.results && video.results.length > 0 && (
                         <div className="video">
                             <p>Trailer</p>
-                            <iframe src={`https://www.youtube.com/embed/${video.results[0].key}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe 
+                                src={`https://www.youtube.com/embed/${video.results[0].key}`} 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                allowFullScreen
+                                title={video.results[0].key}
+                            ></iframe>
                         </div>
                     )}
                 </div>
 
                 <div className="similar">
-                    <SimilarCard />
+                    <h3>Similar movies</h3>
+                    {similar.results && similar.results.length > 0 ? (
+                        similar.results.map((m, i) => i < 5 && (
+                            <Link key={i} to={{ pathname: `/details${type}${m.id}` }}>
+                                <SimilarCard
+                                    title={m.title || m.name}
+                                    image={`https://image.tmdb.org/t/p/w500/${m.backdrop_path}`}
+                                />
+                            </Link>
+                    ))) : (
+                        <small>Oops, data is not available for the new movies</small>
+                    )}
                 </div>
             </MovieDetailsStyled>
         </Wrapper>

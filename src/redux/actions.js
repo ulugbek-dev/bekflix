@@ -27,6 +27,16 @@ export default function state(state = initialState, { type, payload }) {
                 ...state,
                 current_video: payload
             }
+        case 'SIMILAR_MOVIES':
+            return {
+                ...state,
+                similar_movies: payload
+            }
+        case 'REFRESH':
+            return {
+                ...state,
+                current_video: state.current_movie
+            }
         default:
             return state;
     }

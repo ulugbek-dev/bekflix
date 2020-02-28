@@ -2,22 +2,20 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
-export const useAxios = (api, action, type, video) => {
+export const useAxios = (api, action, type, extra) => {
     const [response, setResponse] = useState([]);
     const dispatch = useDispatch();
 
     // Fetch API
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3${type ? type : '/'}${api}${video ? video : ''}?api_key=e0f9357f349cd13298820d389e248b31&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3${type ? type : '/'}${api}${extra ? extra : ''}?api_key=e0f9357f349cd13298820d389e248b31&language=en-US`)
             .then(res => {
                 if(typeof api === 'number')
                     setResponse(res.data)
                 else
                     setResponse(res.data.results)
             })
-    }, []);
-
-    console.log(`https://api.themoviedb.org/3${type ? type : '/'}${api}${video ? video : ''}?api_key=e0f9357f349cd13298820d389e248b31&language=en-US`)
+    }, [])
 
     //  Dispatch action into reducers
     useEffect(() => {
