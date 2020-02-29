@@ -16,10 +16,8 @@ export default function MovieDetails() {
 
     // Fetch details about movie
     useAxios(parseInt(id), 'CURRENT_MOVIE', type);
-
     // Get trailer link
     useAxios(parseInt(id), 'CURRENT_VIDEO', type, '/videos')
-
     // Get similar movies
     useAxios(parseInt(id), 'SIMILAR_MOVIES', type, '/similar')
 
@@ -33,9 +31,11 @@ export default function MovieDetails() {
             <MovieDetailsStyled>
                 <div className="content">
                     <div className="overview">
-                        <div className="image">
-                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title || movie.name} />
-                        </div>
+                        {movie.poster_path && (
+                            <div className="image">
+                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title || movie.name} />
+                            </div>
+                        )}
                         <div className="info">
                             <div className="headline">
                                 <h1>{movie.title || movie.name}</h1>
@@ -82,7 +82,7 @@ export default function MovieDetails() {
                                 />
                             </Link>
                     ))) : (
-                        <small>Oops, data is not available for the new movies</small>
+                        <small>Oops, similar movies are not available for new movies</small>
                     )}
                 </div>
             </MovieDetailsStyled>

@@ -3,6 +3,7 @@ import Home from './Home/Home';
 import MovieDetails from './MovieDetails/MovieDetails';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
+import SearchResults from './SearchResults/SearchResults';
 import { Route, Switch } from 'react-router';
 import { useRerender } from './../hooks/rerender';
 
@@ -14,6 +15,7 @@ export default function App() {
       <Navbar />
 
       <Switch>
+        <Route path="/search-results/:search" component={SearchResults} />
         <Route path="/details/:id" component={render && MovieDetails} />
         <Route path="/" exact component={Home} />
       </Switch>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavbarStyled } from './styled';
 import { Logo } from './../../styled/Logo';
 import { Link } from 'react-router-dom';
+import Search from './../Search/Search';
 
 export default function Navbar() {
-    const [search, setSearch] = useState('');
 
     return (
         <NavbarStyled>
@@ -23,17 +23,7 @@ export default function Navbar() {
                     </ul>
                 </div>
 
-                <form>
-                    <span>
-                        <input 
-                            type="text" 
-                            value={search}
-                            placeholder="Search"
-                            onChange={e => setSearch(e.target.value)}
-                        />
-                        <i className="fa fa-search"></i>
-                    </span>
-                </form>
+                <Search />
             </div>
         </NavbarStyled>
     );
