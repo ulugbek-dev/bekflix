@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { primaryColor, linearBg, boxShadow } from './../../styled/variables';
 
 export const SliderStyled = styled.div`
@@ -27,6 +27,12 @@ export const SliderStyled = styled.div`
             content: '\\2039';
             font-size: 24px;
         }
+    }
+
+    .slick-slide {
+        opacity: 0;
+        transform: scale(.5);
+        animation: scaleIn 200ms 200ms forwards;
     }
 
     .slider-card {

@@ -6,6 +6,7 @@ import Footer from './Footer/Footer';
 import SearchResults from './SearchResults/SearchResults';
 import { Route, Switch } from 'react-router';
 import { useRerender } from './../hooks/rerender';
+import MoviesCard from './MoviesCard/MoviesCard';
 
 export default function App() {
   const render = useRerender();
@@ -15,6 +16,7 @@ export default function App() {
       <Navbar />
 
       <Switch>
+        <Route path="/top/:type" component={MoviesCard} />
         <Route path="/search-results/:search" component={SearchResults} />
         <Route path="/details/:id" component={render && MovieDetails} />
         <Route path="/" exact component={Home} />

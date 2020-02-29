@@ -15,11 +15,9 @@ export default function Navbar() {
                     </Link>
 
                     <ul>
-                        <li>Genre</li>
-                        <li>Movies</li>
-                        <li>TV Shows</li>
-                        <li>Release</li>
-                        <li>Trending</li>                
+                        <Link to={{ pathname: `/top/movie` }}><li>Movies</li></Link>
+                        <Link to={{ pathname: `/top/tv` }}><li>TV Shows</li></Link>
+                        <Link to={{ pathname: `/top/people` }}><li>People</li></Link>
                     </ul>
                 </div>
 

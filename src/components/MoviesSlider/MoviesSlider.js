@@ -9,8 +9,10 @@ export default function MoviesSlider({ title, api, type }) {
     // Get api data and dispatch to store
     useAxios(api, type);
     
+    // Get data from redux store
     const movies = useSelector(state => state[type.toLowerCase()]);
 
+    // Slick slider settings
     const banner = {
         dots: false,
         infinite: true,

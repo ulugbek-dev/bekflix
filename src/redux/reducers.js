@@ -1,7 +1,7 @@
 export const initialState = {
-    top_movies: [],
-    top_tv_shows: [],
-    new_movies: [],
+    top_movie: [],
+    top_tv: [],
+    new_movie: [],
     current_movie: [],
     current_video: [],
     similar_movies: []

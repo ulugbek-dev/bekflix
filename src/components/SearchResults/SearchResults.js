@@ -26,7 +26,7 @@ export default function SearchResults() {
     console.log(people)
 
     // List cards
-    const listCards = (data, title) => (
+    const listCards = (data, title, path) => (
         <SearchResultsStyled>
             <h3>{title}</h3>
             {data.map(r => (
@@ -34,7 +34,7 @@ export default function SearchResults() {
                     key={r.id}
                     title={r.title || r.name}
                     image={r.poster_path || r.profile_path}
-                    path={`/details/${r.id}`}
+                    path={`/details/${path}/${r.id}`}
                 />
             ))}
         </SearchResultsStyled>
@@ -42,9 +42,9 @@ export default function SearchResults() {
 
     return (
         <Wrapper>
-            {people.length > 0 && listCards(people, 'People')}
-            {movie.length > 0 && listCards(movie, 'Movies')}
-            {tv.length > 0 && listCards(tv, 'Tv shows')}
+            {people.length > 0 && listCards(people, 'People', 'person')}
+            {movie.length > 0 && listCards(movie, 'Movies', 'movie')}
+            {tv.length > 0 && listCards(tv, 'Tv shows', 'tv')}
             
             {people.length === 0 && movie.length === 0 && tv.length === 0 && (
                 <SearchResultsStyled oops>

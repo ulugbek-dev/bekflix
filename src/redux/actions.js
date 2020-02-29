@@ -2,20 +2,20 @@ import { initialState } from './reducers';
 
 export default function state(state = initialState, { type, payload }) {
     switch(type) {
-        case 'TOP_MOVIES':
+        case 'TOP_MOVIE':
             return {
                 ...state,
-                top_movies: payload
+                top_movie: payload
             }
-        case 'TOP_TV_SHOWS':
+        case 'TOP_TV':
             return {
                 ...state,
-                top_tv_shows: payload
+                top_tv: payload
             }
-        case 'NEW_MOVIES':
+        case 'NEW_MOVIE':
             return {
                 ...state,
-                new_movies: payload
+                new_movie: payload
             }
         case 'CURRENT_MOVIE':
             return {
@@ -32,10 +32,15 @@ export default function state(state = initialState, { type, payload }) {
                 ...state,
                 similar_movies: payload
             }
-        case 'REFRESH':
+        case 'LOAD_MORE_MOVIE':
             return {
-                ...state,
-                current_video: state.current_movie
+                ...state, 
+                top_movie: [...state.top_movie, ...payload]
+            }
+        case 'LOAD_MORE_TV':
+            return {
+                ...state, 
+                top_tv: [...state.top_tv, ...payload]
             }
         default:
             return state;
