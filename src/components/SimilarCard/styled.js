@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { linearBg, boxShadow } from './../../styled/variables';
 
 export const SimilarCardStyled = styled.div`
     padding-left: 50px;
@@ -11,7 +12,7 @@ export const SimilarCardStyled = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     margin-bottom: 20px;
-    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: ${boxShadow};
     opacity: .7;
     transition: 200ms;
 
@@ -26,7 +27,7 @@ export const SimilarCardStyled = styled.div`
         height: 50%;
         bottom: 0;
         left: 0;
-        background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+        background: ${linearBg};
     }
 
         p {

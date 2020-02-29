@@ -20,7 +20,7 @@ export const MovieDetailsStyled = styled.div`
             }
 
             .info {
-                flex: 2.5;
+                flex: 3;
                 padding-right: 3    0px;
 
                 h1 {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor } from './../../styled/variables';
+import { primaryColor, linearBg, boxShadow } from './../../styled/variables';
 
 export const SliderStyled = styled.div`
     width: calc(100% + 8px);
@@ -30,11 +30,11 @@ export const SliderStyled = styled.div`
     }
 
     .slider-card {
-        height: 150px;
+        height: 170px;
         padding: 0 8px;
 
         .card-content {
-            box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
+            box-shadow: ${boxShadow};
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -57,7 +57,7 @@ export const SliderStyled = styled.div`
                 width: 100%;
                 height: 50%;
                 background: rgb(0,0,0);
-                background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+                background: ${linearBg};
             }
 
             h3 {

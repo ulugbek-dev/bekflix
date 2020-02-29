@@ -82,7 +82,7 @@ export default function MovieDetails() {
                                 />
                             </Link>
                     ))) : (
-                        <small>Oops, similar movies are not available for new movies</small>
+                        <small>Oops, similar movies are not available for some new movies</small>
                     )}
                 </div>
             </MovieDetailsStyled>

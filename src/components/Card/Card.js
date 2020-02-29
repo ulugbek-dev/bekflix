@@ -1,10 +1,17 @@
 import React from 'react';
 import { CardStyled } from './styled';
 
-export default function Card({ title, image }) {
+import { Link } from 'react-router-dom';
+export default function Card({ title, image, path }) {
     return (
-        <CardStyled style={{backgroundImage: `url(image)`}}>
-            <p>{title}</p>
-        </CardStyled>
+        <span>
+            <Link to={{
+                pathname: path
+            }}>
+                <CardStyled style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${image})`}}>
+                    <p>{title}</p>
+                </CardStyled>
+            </Link>
+        </span>
     );
 }
