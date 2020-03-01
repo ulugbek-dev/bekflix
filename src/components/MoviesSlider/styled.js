@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { primaryColor, linearBg, boxShadow } from './../../styled/variables';
 
 export const SliderStyled = styled.div`
-    width: calc(100% + 8px);
+    width: calc(100% + 16px);
     margin: 0 -8px 50px -8px;
     @media(max-width: 512px) {
         margin-bottom: 30px;
