@@ -7,8 +7,10 @@ import Card from './../Card/Card';
 import { SearchResultsStyled } from './styled';
 
 export default function SearchResults() {
+    // Get params from url
     let { search } = useParams();
 
+    // Search response state
     const [response, setResponse] = useState('');
     
     // Fetch search result
@@ -22,8 +24,6 @@ export default function SearchResults() {
     const people = response ? response.filter(x => x.known_for_department === 'Acting' && x.profile_path) : [];
     const movie = response ? response.filter(x => x.media_type === 'movie' && x.poster_path) : [];
     const tv = response ? response.filter(x => x.media_type === 'tv' && x.poster_path) : [];
-
-    console.log(people)
 
     // List cards
     const listCards = (data, title, path) => (

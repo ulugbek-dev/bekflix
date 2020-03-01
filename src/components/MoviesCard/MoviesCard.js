@@ -7,6 +7,7 @@ import { MoviesCardStyled } from './styled';
 import Card from './../Card/Card';
 
 export default function MoviesCard() {
+    // Get media type from pathname
     const location = useLocation();
     const type = location.pathname.split('/')[2];
 

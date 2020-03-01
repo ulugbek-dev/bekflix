@@ -6,14 +6,14 @@ import { useSelector } from 'react-redux';
 import { useWidth } from './../../hooks/width';
 import Card from '../Card/Card';
 
-export default function Casts({ title, api, action, direct }) {
+export default function Casts({ title, api, action, type }) {
     // Get api data and dispatch to store
     useAxios(api, action, null, null, 1);
     
     // Get data from redux store
-    const credits = useSelector(state => state['casts']);
+    const credits = useSelector(state => state[action.toLowerCase()]);
 
-    // Window width listener
+    // Get window width
     const width = useWidth();
 
     // Slider responsiveness handler
@@ -35,18 +35,16 @@ export default function Casts({ title, api, action, direct }) {
         arrows: true
     };
 
-    console.log(credits);
-
     return (
         <SliderStyled>
-            <p>{title}</p>
+            <p className="title">{title}</p>
             <Slider {...cards}>
                 {credits.length !== 0 && credits.cast.map((p, i) => i < 10 && (
                     <Card
                         key={i}
-                        title={p.name}
-                        image={p.profile_path}
-                        path={`/details/person/${p.id}`}
+                        title={p.name || p.title}
+                        image={p.profile_path || p.poster_path}
+                        path={`/details/${type ? type : p.media_type}/${p.id}`}
                     />
                 ))}
             </Slider>

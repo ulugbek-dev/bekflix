@@ -6,6 +6,7 @@ import Search from './../Search/Search';
 import { useWidth } from './../../hooks/width';
 
 export default function Navbar() {
+    // Get window width
     const width = useWidth();
 
     return (

@@ -4,7 +4,6 @@ import { linearBg, boxShadow } from './../../styled/variables';
 export const CardStyled = styled.div`
     display: flex;
     position: relative;
-    ${props => props.small ? css`height: 170px;` : css`height: 200px;`}
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,6 +13,15 @@ export const CardStyled = styled.div`
     color: #fff;
     opacity: .85;
     transition: 200ms;
+    height: 200px;
+    ${props => props.small && css`height: 170px;`}
+    ${props => props.sidebar && css`
+        height: 150px;
+        margin-left: -4px;
+        margin-bottom: 15px;
+        width: calc(100% + 4px);
+    `}
+
     @media(max-width: 512px) {
         margin: 5px;
     }
@@ -29,6 +37,8 @@ export const CardStyled = styled.div`
         width: 100%;
         bottom: 0;
         left: 0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
         background: ${linearBg};
     }
 

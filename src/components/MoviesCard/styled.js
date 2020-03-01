@@ -9,12 +9,10 @@ export const MoviesCardStyled = styled.section`
         transform: scale(.7);
         animation: scaleIn 200ms forwards 200ms;
     }
-
     h3 {
         padding: 0 10px;
         margin-bottom: 15px;
     }
-
     span {
         display: inline-block;
         min-width: 180px;

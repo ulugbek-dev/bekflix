@@ -3,11 +3,11 @@ import { Wrapper } from '../../styled/Wrapper';
 import { MovieDetailsStyled } from './styled';
 import { useLocation } from 'react-router';
 import { useAxios } from '../../hooks/axios';
+import { useWidth } from '../../hooks/width';
 import { useSelector } from 'react-redux';
-import SimilarCard from '../SimilarCard/SimilarCard';
+import SimilarMovies from '../SimilarMovies/SimilarMovies';
 import Trailer from '../Trailer/Trailer';
 import Casts from '../Casts/Casts';
-import { Link } from 'react-router-dom';
 
 export default function MovieDetails() {
     // Get movie/tv id
@@ -18,17 +18,15 @@ export default function MovieDetails() {
 
     // Fetch details about movie
     useAxios(id, 'CURRENT_DETAILS', type, null, 1);
-    // Fetch trailer link
+    // Fetch trailer
     useAxios(id, 'CURRENT_VIDEO', type, '/videos', 1);
-    // Fetch similar movies
-    useAxios(id, 'SIMILAR_MOVIES', type, '/similar', 1);
 
     // Get data from store
     const details = useSelector(state => state['current_details']);
     const video = useSelector(state => state['current_video']);
-    const similar = useSelector(state => state['similar_movies']);
 
-    console.log(type)
+    // Get window width
+    const width = useWidth();
 
     return (
         <Wrapper>
@@ -86,8 +84,17 @@ export default function MovieDetails() {
                     {type !== '/person/' && (
                         <Casts
                             title="Casts"
-                            api={`movie/${id}/credits`}
+                            api={`${type.split('/')[1]}/${id}/credits`}
                             action="CASTS"
+                            type="person"
+                        />
+                    )}
+
+                    {type === '/person/' && (
+                        <Casts
+                            title="Movies"
+                            api={`person/${id}/combined_credits`}
+                            action="MOVIE_CREDITS"
                         />
                     )}
 
@@ -96,21 +103,8 @@ export default function MovieDetails() {
                     )}
                 </div>
 
-                {type !== '/person/' && (
-                    <div className="similar">
-                        <h3>Similar movies</h3>
-                        {similar.results && similar.results.length > 0 ? (
-                            similar.results.map((m, i) => i < 5 && (
-                                <Link key={i} to={{ pathname: `/details${type}${m.id}` }}>
-                                    <SimilarCard
-                                        title={m.title || m.name}
-                                        image={`https://image.tmdb.org/t/p/w500/${m.backdrop_path}`}
-                                    />
-                                </Link>
-                        ))) : (
-                            <small>Oops, similar movies are not available for some movies</small>
-                        )}
-                    </div>
+                {type !== '/person/' && width > 1023 && (
+                    <SimilarMovies id={id} type={type} />
                 )}
             </MovieDetailsStyled>
         </Wrapper>

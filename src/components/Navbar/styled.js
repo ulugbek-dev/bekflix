@@ -12,7 +12,6 @@ export const NavbarStyled = styled.nav`
     @media(max-width: 512px) {
         height: 60px;
     }
-    
     .navbar {
         width: 100%;
         max-width: ${maxWidth};
@@ -23,23 +22,19 @@ export const NavbarStyled = styled.nav`
         @media(max-width: 512px) {
             padding: 15px;
         }
-
         div {
             display: flex;
             align-items: center;
-
             ul {
                 margin: 0;
                 display: flex;
                 list-style: none;
                 font-size: 14px;
-
                 li {
                     margin: 0 10px;
                     color: rgba(255, 255, 255, .75);
                     transition: 200ms;
                     cursor: pointer;
-
                     :hover {
                         color: rgba(255, 255, 255, 1);
                     }

@@ -13,13 +13,11 @@ export const SearchResultsStyled = styled.div`
     @media(max-width: 512px) {
         margin: -5px -5px 40px -5px;
     }
-
     h3 {
         padding: 0 10px;
         margin-bottom: 2px;
         opacity: .85;
     }
-
     span {
         display: inline-block;
         min-width: 180px;

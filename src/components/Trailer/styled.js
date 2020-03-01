@@ -12,5 +12,11 @@ export const VideoStyled = styled.div`
     iframe {
         width: 100%;
         height: 450px;
+        @media(max-width: 768px) {
+            height: 400px;
+            @media(max-width: 512px) {
+                height: 300px;
+            }
+        }
     }
 `

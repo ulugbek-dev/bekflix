@@ -35,12 +35,17 @@ export default function state(state = initialState, { type, payload }) {
         case 'SIMILAR_MOVIES':
             return {
                 ...state,
-                similar_movies: payload
+                similar_movies: payload.results
             }
         case 'CASTS':
             return {
                 ...state,
                 casts: payload
+            }
+        case 'MOVIE_CREDITS':
+            return {
+                ...state,
+                movie_credits: payload
             }
         case 'LOAD_MORE_MOVIE':
             return {

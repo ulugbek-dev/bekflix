@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { primaryColor, linearBg, boxShadow } from './../../styled/variables';
+import styled from 'styled-components';
 
 export const SliderStyled = styled.div`
     width: calc(100% + 8px);
@@ -7,7 +6,8 @@ export const SliderStyled = styled.div`
     @media(max-width: 512px) {
         margin-bottom: 30px;
     }
-    p {
+    
+    .title {
         padding: 0 8px;
         margin-bottom: 4px;
         font-size: 20px;

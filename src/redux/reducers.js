@@ -6,5 +6,6 @@ export const initialState = {
     current_video: [],
     similar_movies: [],
     top_person: [],
-    casts: []
+    casts: [],
+    movie_credits: []
 }
