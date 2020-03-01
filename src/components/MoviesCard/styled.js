@@ -25,6 +25,7 @@ export const MoviesCardStyled = styled.section`
                 @media(max-width: 579px) {
                     width: 50%;
                     @media(max-width: 350px) {
+                        min-width: 150px;
                         width: 100%;
                     }
                 }
