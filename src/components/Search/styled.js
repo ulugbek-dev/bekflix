@@ -14,6 +14,9 @@ export const SearchStyled = styled.form`
             transition: 200ms;
             width: 200px;
             color: #fff;
+            @media(max-width: 512px) {
+                width: 150px;
+            }
 
             :hover {
                 background: rgba(255, 255, 255, .2);
@@ -21,6 +24,9 @@ export const SearchStyled = styled.form`
             :focus {
                 background: rgba(255, 255, 255, .2);
                 width: 230px;
+                @media(max-width: 512px) {
+                    width: 180px;
+                }
             }
         }
         

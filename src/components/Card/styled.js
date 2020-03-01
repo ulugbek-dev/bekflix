@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { linearBg, boxShadow } from './../../styled/variables';
 
 export const CardStyled = styled.div`
     display: flex;
     position: relative;
-    height: 200px;
+    ${props => props.small ? css`height: 170px;` : css`height: 200px;`}
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,6 +14,9 @@ export const CardStyled = styled.div`
     color: #fff;
     opacity: .85;
     transition: 200ms;
+    @media(max-width: 512px) {
+        margin: 5px;
+    }
 
     :hover {
         opacity: 1;

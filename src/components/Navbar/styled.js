@@ -9,6 +9,9 @@ export const NavbarStyled = styled.nav`
     height: 80px;
     display: flex;
     justify-content: center;
+    @media(max-width: 512px) {
+        height: 60px;
+    }
     
     .navbar {
         width: 100%;
@@ -17,6 +20,9 @@ export const NavbarStyled = styled.nav`
         align-items: center;
         justify-content: space-between;
         padding: 30px;
+        @media(max-width: 512px) {
+            padding: 15px;
+        }
 
         div {
             display: flex;

@@ -10,10 +10,14 @@ export const SearchResultsStyled = styled.div`
         align-items: center;
         opacity: .7;
     `}
+    @media(max-width: 512px) {
+        margin: -5px -5px 40px -5px;
+    }
 
     h3 {
         padding: 0 10px;
-        margin-bottom: 15px;
+        margin-bottom: 2px;
+        opacity: .85;
     }
 
     span {
@@ -27,10 +31,8 @@ export const SearchResultsStyled = styled.div`
                 @media(max-width: 759px) {
                     width: 33%;
                     @media(max-width: 579px) {
+                        min-width: 100px;
                         width: 50%;
-                        @media(max-width: 399px) {
-                            width: 100%;
-                        }
                     }
                 }
             }

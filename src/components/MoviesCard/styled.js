@@ -1,6 +1,4 @@
-import styled, { css } from 'styled-components';
-
-let delay = 200;
+import styled from 'styled-components';
 
 export const MoviesCardStyled = styled.section`
     margin: -10px;
@@ -8,13 +6,8 @@ export const MoviesCardStyled = styled.section`
 
     span {
         opacity: 0;
-        transform: scale(.5);
-
-        ${props => props.animation.map((x, i) => (css`
-            :nth-child(${i}) {
-                animation: scaleIn ${delay}ms ${props.animation = i ? delay += 10 : delay = 200}ms forwards;
-            }
-        `))}
+        transform: scale(.7);
+        animation: scaleIn 200ms forwards 200ms;
     }
 
     h3 {
@@ -25,18 +18,15 @@ export const MoviesCardStyled = styled.section`
     span {
         display: inline-block;
         min-width: 180px;
-        width: 16.6%;
-        @media(max-width: 1119px) {
-            width: 20%;
-            @media(max-width: 939px) {
-                width: 25%;
-                @media(max-width: 759px) {
-                    width: 33%;
-                    @media(max-width: 579px) {
-                        width: 50%;
-                        @media(max-width: 399px) {
-                            width: 100%;
-                        }
+        width: 20%;
+        @media(max-width: 939px) {
+            width: 25%;
+            @media(max-width: 759px) {
+                width: 33%;
+                @media(max-width: 579px) {
+                    width: 50%;
+                    @media(max-width: 399px) {
+                        width: 100%;
                     }
                 }
             }

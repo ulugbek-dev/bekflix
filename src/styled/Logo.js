@@ -13,6 +13,9 @@ export const Logo = styled.h1`
     display: inline-block;
     color: ${primaryColor};
     transition: 200ms ease;
+    @media(max-width: 512px) {
+        font-size: 20px;
+    }
 
     :hover {
         filter: grayscale(40%);

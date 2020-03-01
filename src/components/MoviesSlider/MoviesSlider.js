@@ -4,6 +4,7 @@ import { SliderStyled } from './styled';
 import { useAxios } from './../../hooks/axios';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useWidth } from './../../hooks/width';
 
 export default function MoviesSlider({ title, api, type }) {
     // Get api data and dispatch to store
@@ -12,12 +13,26 @@ export default function MoviesSlider({ title, api, type }) {
     // Get data from redux store
     const movies = useSelector(state => state[type.toLowerCase()]);
 
+    // Window width listener
+    const width = useWidth();
+
+    // Slider responsiveness handler
+    function handleSlides() {
+        if(width < 450) return 1;
+        if(width < 750) return 2;
+        if(width < 980) return 3;
+        if(width < 1100) return 4;
+        return 5
+    }
+
+    console.log(width)
+
     // Slick slider settings
     const banner = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: handleSlides(),
         slidesToScroll: 1,
         arrows: true
     };

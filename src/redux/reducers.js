@@ -4,5 +4,6 @@ export const initialState = {
     new_movie: [],
     current_movie: [],
     current_video: [],
-    similar_movies: []
+    similar_movies: [],
+    top_person: []
 }

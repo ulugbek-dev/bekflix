@@ -15,11 +15,11 @@ export default function MovieDetails() {
     const id = arr[arr.length-1];
 
     // Fetch details about movie
-    useAxios(parseInt(id), 'CURRENT_MOVIE', type);
+    useAxios(parseInt(id), 'CURRENT_MOVIE', type, null, 1);
     // Get trailer link
-    useAxios(parseInt(id), 'CURRENT_VIDEO', type, '/videos')
+    useAxios(parseInt(id), 'CURRENT_VIDEO', type, '/videos', 1)
     // Get similar movies
-    useAxios(parseInt(id), 'SIMILAR_MOVIES', type, '/similar')
+    useAxios(parseInt(id), 'SIMILAR_MOVIES', type, '/similar', 1)
 
     // Get data from store
     const movie = useSelector(state => state['current_movie']);
