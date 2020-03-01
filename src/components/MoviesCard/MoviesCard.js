@@ -47,7 +47,7 @@ export default function MoviesCard() {
                         key={m.id}
                         title={m.title || m.name}
                         image={m.poster_path || m.profile_path}
-                        path={`/details/${type}/${m.id}`}
+                        path={`/details/${type === 'people' ? 'person' : type}/${m.id}`}
                     />
                 ))}
             </MoviesCardStyled>

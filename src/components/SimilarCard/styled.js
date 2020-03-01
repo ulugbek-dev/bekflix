@@ -4,7 +4,7 @@ import { linearBg, boxShadow } from './../../styled/variables';
 export const SimilarCardStyled = styled.div`
     padding-left: 50px;
     color: #fff;
-    height: 150px;
+    height: 180px;
     width: 100%;
     float: right;
     position: relative;

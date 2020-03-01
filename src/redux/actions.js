@@ -5,27 +5,27 @@ export default function state(state = initialState, { type, payload }) {
         case 'TOP_MOVIE':
             return {
                 ...state,
-                top_movie: payload
+                top_movie: payload.results
             }
         case 'TOP_TV':
             return {
                 ...state,
-                top_tv: payload
+                top_tv: payload.results
             }
         case 'TOP_PERSON':
             return {
                 ...state,
-                top_person: payload
+                top_person: payload.results
             }
         case 'NEW_MOVIE':
             return {
                 ...state,
-                new_movie: payload
+                new_movie: payload.results
             }
-        case 'CURRENT_MOVIE':
+        case 'CURRENT_DETAILS':
             return {
                 ...state,
-                current_movie: payload
+                current_details: payload
             }
         case 'CURRENT_VIDEO':
             return {
@@ -36,6 +36,11 @@ export default function state(state = initialState, { type, payload }) {
             return {
                 ...state,
                 similar_movies: payload
+            }
+        case 'CASTS':
+            return {
+                ...state,
+                casts: payload
             }
         case 'LOAD_MORE_MOVIE':
             return {

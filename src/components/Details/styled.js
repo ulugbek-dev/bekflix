@@ -1,11 +1,16 @@
-import styled from 'styled-components';
-import { primaryColor } from '../../styled/variables';
+import styled, { css } from 'styled-components';
+import { primaryColor, boxShadow } from '../../styled/variables';
 
 export const MovieDetailsStyled = styled.div`
     display: flex;
+    justify-content: space-between;
 
     .content {
-        flex: 2.5;
+        ${props => props.person ? css`width: 100%;` : css`width: 70%;`}
+        padding: 30px;
+        background: rgba(255, 255, 255, .05);
+        box-shadow: ${boxShadow};
+        border-radius: 6px;
 
         .overview {
             display: flex;
@@ -20,8 +25,8 @@ export const MovieDetailsStyled = styled.div`
             }
 
             .info {
-                flex: 3;
-                padding-right: 3    0px;
+                padding-right: 30px;
+                ${props => props.person ? css`flex: 4;` : css`flex: 3;`}
 
                 h1 {
                     font-size: 22px;
@@ -31,22 +36,28 @@ export const MovieDetailsStyled = styled.div`
                 .headline {
                     display: flex;
                     align-items: center;
+                    margin-bottom: 30px;
 
                     span {
                         margin-left: 20px;
 
                         i {
-                            color: ${primaryColor};
+                            ${props => props.person ? css`
+                                color: #F5C518;
+                                font-size: 24px;
+                            ` : css`
+                                color: ${primaryColor};
+                            `}
                             margin: 0 4px;
                         }
                     }
                 }
 
                 .item {
-                    margin-top: 40px;
                     font-size: 14px;
                     display: flex;
                     align-items: flex-start;
+                    ${props => props.person ? css`margin-top: 20px;` : css`margin-top: 35px;`}
 
                     p {
                         width: 120px;
@@ -55,30 +66,21 @@ export const MovieDetailsStyled = styled.div`
                     }
                     span {
                         flex: 1;
+                        opacity: .9;
                     }
                 }
-            }
-        }
-
-        .video {
-            margin-top: 50px;
-
-            p {
-                font-size: 22px;
-                margin: 20px 0;
-            }
-
-            iframe {
-                width: 100%;
-                height: 450px;
             }
         }
     }
 
     .similar {
         flex: 1;
-        max-width: 330px;
-        padding-left: 80px;
+        padding: 30px;
+        display: table;
+        background: rgba(255, 255, 255, .05);
+        box-shadow: ${boxShadow};
+        border-radius: 6px;
+        margin-left: 30px;
 
         h3 {
             opacity: .9;

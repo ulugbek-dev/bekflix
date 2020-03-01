@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './Home/Home';
-import MovieDetails from './MovieDetails/MovieDetails';
+import Details from './Details/Details';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import SearchResults from './SearchResults/SearchResults';
@@ -18,7 +18,7 @@ export default function App() {
       <Switch>
         <Route path="/top/:type" component={MoviesCard} />
         <Route path="/search-results/:search" component={SearchResults} />
-        <Route path="/details/:id" component={render && MovieDetails} />
+        <Route path="/details/:id" component={Details} />
         <Route path="/" exact component={Home} />
       </Switch>
 

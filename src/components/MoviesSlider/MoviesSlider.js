@@ -25,8 +25,6 @@ export default function MoviesSlider({ title, api, type }) {
         return 5
     }
 
-    console.log(width)
-
     // Slick slider settings
     const banner = {
         dots: false,
