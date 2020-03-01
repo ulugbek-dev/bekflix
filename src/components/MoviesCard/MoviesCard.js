@@ -21,10 +21,9 @@ export default function MoviesCard() {
     const [page, setPage] = useState(1);
     
     // Dispatch data to store
-    useAxios(type === 'people' ? 'person/popular' : type+'/top_rated', 
-        page === 1 
-            ? `TOP_${type === 'people' ? 'PERSON' : type.toUpperCase()}`
-            : `LOAD_MORE_${type === 'people' ? 'PERSON' : type.toUpperCase()}`,
+    useAxios(
+        type === 'people' ? 'person/popular' : type+'/top_rated', 
+        page === 1 ? `TOP_${type === 'people' ? 'PERSON' : type.toUpperCase()}` : `LOAD_MORE_${type === 'people' ? 'PERSON' : type.toUpperCase()}`,
         null,
         null,
         page
@@ -40,20 +39,24 @@ export default function MoviesCard() {
         setPage(1);
     }, [location]);
 
+    console.log(page)
+
     return (
         <Wrapper>
             <MoviesCardStyled>
-                {data && data.map(m => (
-                    <Card small
-                        key={m.id}
-                        title={m.title || m.name}
-                        image={m.poster_path || m.profile_path}
-                        path={`/details/${type === 'people' ? 'person' : type}/${m.id}`}
-                    />
-                ))}
-            </MoviesCardStyled>
+                <div>
+                    {data && data.map(m => (
+                        <Card small
+                            key={m.id}
+                            title={m.title || m.name}
+                            image={m.poster_path || m.profile_path}
+                            path={`/details/${type === 'people' ? 'person' : type}/${m.id}`}
+                        />
+                    ))}
+                </div>
 
-            <button onClick={() => handleLoadMore()}>Load more</button>
+                <button onClick={() => handleLoadMore()}>Load more</button>
+            </MoviesCardStyled>
         </Wrapper>
     );
 }

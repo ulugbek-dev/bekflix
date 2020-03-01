@@ -25,22 +25,30 @@ export const NavbarStyled = styled.nav`
         div {
             display: flex;
             align-items: center;
-            ul {
-                margin: 0;
-                display: flex;
-                list-style: none;
-                font-size: 14px;
-                li {
-                    margin: 0 10px;
-                    color: rgba(255, 255, 255, .75);
-                    transition: 200ms;
-                    cursor: pointer;
-                    :hover {
-                        color: rgba(255, 255, 255, 1);
-                    }
-                }
+        }
+    }
+    
+    ul {
+        margin: 0;
+        display: flex;
+        list-style: none;
+        font-size: 14px;
+        @media(max-width: 660px) {
+            position: absolute;
+            top: 60px;
+            background: rgba(0, 0, 0, .9);
+            width: 100%;
+            padding: 15px;
+            justify-content: space-between;
+        }
+        li {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, .75);
+            transition: 200ms;
+            cursor: pointer;
+            :hover {
+                color: rgba(255, 255, 255, 1);
             }
-
         }
     }
 `

@@ -17,7 +17,7 @@ export default function Navbar() {
                         <Logo>bek<span>flix</span></Logo>
                     </Link>
 
-                    {width > 768 && (
+                    {width > 660 && (
                         <ul>
                             <Link to={{ pathname: `/top/movie` }}><li>Movies</li></Link>
                             <Link to={{ pathname: `/top/tv` }}><li>TV Shows</li></Link>
@@ -28,6 +28,14 @@ export default function Navbar() {
 
                 <Search />
             </div>
+
+            {width <= 660 && (
+                <ul>
+                    <Link to={{ pathname: `/top/movie` }}><li>Movies</li></Link>
+                    <Link to={{ pathname: `/top/tv` }}><li>TV Shows</li></Link>
+                    <Link to={{ pathname: `/top/people` }}><li>People</li></Link>
+                </ul>
+            )}
         </NavbarStyled>
     );
 }

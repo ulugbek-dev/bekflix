@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { primaryColor } from './../../styled/variables';
 
 export const MoviesCardStyled = styled.section`
     margin: -10px;
@@ -23,11 +24,28 @@ export const MoviesCardStyled = styled.section`
                 width: 33%;
                 @media(max-width: 579px) {
                     width: 50%;
-                    @media(max-width: 399px) {
+                    @media(max-width: 350px) {
                         width: 100%;
                     }
                 }
             }
+        }
+    }
+    button {
+        color: ${primaryColor};
+        display: block; 
+        margin: auto;
+        background: transparent;
+        border: 1px solid transparent;
+        cursor: pointer;
+        margin-top: 30px;
+        padding: 8px;
+        border-radis: 6px;
+        border: 1px solid ${primaryColor};
+        transition: 200ms;
+        opacity: .8;
+        :hover {
+            opacity: 1;
         }
     }
 `

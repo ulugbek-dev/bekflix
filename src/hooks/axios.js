@@ -18,7 +18,7 @@ export const useAxios = (api, action, type, extra, page) => {
                 })
                 .catch(err => console.log(err))
         }
-
+            
         fetchApi();
     }, [api, action, type, extra, page])
 }

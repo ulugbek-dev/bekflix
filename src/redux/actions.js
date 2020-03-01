@@ -50,17 +50,17 @@ export default function state(state = initialState, { type, payload }) {
         case 'LOAD_MORE_MOVIE':
             return {
                 ...state, 
-                top_movie: [...state.top_movie, ...payload]
+                top_movie: [...state.top_movie, ...payload.results]
             }
         case 'LOAD_MORE_TV':
             return {
                 ...state, 
-                top_tv: [...state.top_tv, ...payload]
+                top_tv: [...state.top_tv, ...payload.results]
             }
         case 'LOAD_MORE_PERSON':
             return {
                 ...state,
-                top_person: [...state.top_person, ...payload]
+                top_person: [...state.top_person, ...payload.results]
             }
         default:
             return state;

@@ -83,7 +83,7 @@ export default function MovieDetails() {
 
                     {type !== '/person/' && (
                         <Casts
-                            title="Casts"
+                            title="Cast"
                             api={`${type.split('/')[1]}/${id}/credits`}
                             action="CASTS"
                             type="person"
